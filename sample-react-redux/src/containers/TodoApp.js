@@ -13,10 +13,12 @@ function mapStateToProps({ task, tasks }){
 */
 
 
-const mapStateToProps = (state) => ({
-    task : state.task,
-    tasks : state.tasks,
-});
+function mapStateToProps(state){
+    return  {
+        task : state.task,
+        tasks : state.tasks,
+    }
+};
 
 
 function mapDispatchToProps(dispatch){

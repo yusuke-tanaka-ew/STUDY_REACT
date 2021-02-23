@@ -1,5 +1,5 @@
 import React from 'react';
-import { provider } from 'react-redux';
+import { Provider } from 'react-redux';
 import { render } from 'react-dom';
 import { createStore } from 'redux';
 import taskReducer from './reducers/tasks';
@@ -10,9 +10,9 @@ import reportWebVitals from './reportWebVitals';
 const store = createStore(taskReducer);
 
 render(
-  <provider store = {store}>
+  <Provider store = {store} >
     <TodoApp />
-  </provider>,
+  </Provider >,
   document.getElementById('root')
 );
 
