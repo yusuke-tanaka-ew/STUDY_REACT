@@ -9,8 +9,8 @@ export default function TodoApp({ task,tasks,inputTask,addTask}){
                 {
                     tasks.map(function(item,i){
                         return(
-                        <li key={i}>{item}</li>
-                        )
+                            <li key={i}>{item}</li>
+                        );
                     })
                 }
             </ul>
