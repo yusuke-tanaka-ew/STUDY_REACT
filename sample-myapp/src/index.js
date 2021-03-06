@@ -7,7 +7,13 @@ import {createStore} from 'redux';
 
 const store = createStore(userReducer);
 
-render(
-  <UserList store = {store} />,
-  document.getElementById('root')
-)
+function renderUser(store){
+  render(
+    <UserList store = {store} />,
+    document.getElementById('root')
+  )
+}
+
+store.subscribe(()=>renderUser(store));
+
+renderUser(store);

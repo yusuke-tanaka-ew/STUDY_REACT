@@ -1,11 +1,16 @@
 import React from 'react';
+import {inputUser,addUser} from '../actions/addUser';
 
 
 function UserList({store}){
-    const { userNameList } = store.getState();
+    const { userName,userNameList } = store.getState();
     return(
         <div>
             <h2>User List</h2>
+            <div classNam='InputArea'>
+                <input type = 'text' onChange={(e)=>store.dispatch(inputUser(e.target.value))} />
+                <input type = 'button' value = 'add' onClick = {() => store.dispatch(addUser(userName))} />
+            </div>
             <div className='UserListArea'>
                 <ul>
                     {

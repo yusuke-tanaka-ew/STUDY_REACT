@@ -1,6 +1,7 @@
 
 
 const initialState = {
+    userName : '',
     userNameList : [
         'ob',
         'mng',
@@ -8,7 +9,21 @@ const initialState = {
     ]
 }
 
-function userReducer(state=initialState){
+function userReducer(state=initialState,action ){
+    switch (action.type){
+        case 'INPUT_USER':
+            return {
+                ...state,
+                userName : action.payload.name
+            };
+        case 'ADD_USER':
+            return {
+                ...state,
+                userNameList : state.userNameList.concat([action.payload.name])
+            };
+        default :
+            return state;
+    }
     return state;
 }
 
