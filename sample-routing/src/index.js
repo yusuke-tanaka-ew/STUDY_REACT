@@ -19,13 +19,12 @@ import {
 
 const store = createStore(userReducer);
 
-
 render(
   <Provider store = {store}>
     <Router>
-      <Route path = '/' component = {App} />
+      <Route exact path ='/' component = {App} />
       <Route path ='/userlist' component = {UsersList} />
-      <Route path ='/login' component = {Login} />
+      <Route exact path ='/login' component = {Login} />
     </Router>
   </Provider>,
   document.getElementById('root')

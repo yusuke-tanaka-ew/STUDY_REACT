@@ -4,7 +4,7 @@ import { addUser }from '../actions/addUser';
 
 function mapStateToProps(state){
     return {
-        userNameList : state.UsersList
+        userNameList : state.UserNameList
     };
 }
 
