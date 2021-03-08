@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-function UserList({userName,userNameList,inputUser,addUser}){
+export default function UserList({userName,userNameList,inputUser,addUser,redirectToError}){
     return(
         <div>
             <h2>User List</h2>
@@ -22,8 +22,10 @@ function UserList({userName,userNameList,inputUser,addUser}){
                     }
                 </ul>
             </div>
+            <div className='ErrorArea'>
+                <input type= 'button' value='Move to Error Page' onClick={()=>redirectToError()} />
+            </div>
         </div>
     )
 }
 
-export default UserList;

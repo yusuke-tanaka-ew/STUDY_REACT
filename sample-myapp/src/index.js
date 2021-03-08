@@ -1,16 +1,25 @@
 import React from 'react';
 import {render} from 'react-dom';
-import {createStore} from 'redux';
 import {Provider} from 'react-redux';
+import {ConnectedRouter} from 'react-router-redux';
+import createBrowserHistory from 'history/createBrowserHistory';
+import {Route} from 'react-router-dom';
 
-import userReducer from './reducers/user';
+import createStore from './store';
 import UserList from './container/UserList';
+import Error from './components/error'
 
-const store = createStore(userReducer);
+const history = createBrowserHistory();
+const store = createStore(history);
 
 render(
   <Provider store = {store}>
-    <UserList />
+    <ConnectedRouter history = {history}>
+      <div className = 'RouterArea'>
+        <Route exact path= "/" component = {UserList} />
+        <Route exact path="/error" component = {Error} />
+      </div>
+    </ConnectedRouter>
   </Provider>,
   document.getElementById('root')
 );

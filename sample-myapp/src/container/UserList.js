@@ -1,12 +1,12 @@
 import {connect} from 'react-redux';
 import UserList from '../components/UserList';
 import {inputUser,addUser} from '../actions/addUser';
+import {push} from 'react-router-redux'
 
-
-function mapStateToProps(state){
+function mapStateToProps(users){
     return {
-        userName : state.userName,
-        userNameList : state.userNameList
+        userName : users.userName,
+        userNameList : users.userNameList
     } 
 }
 
@@ -17,6 +17,9 @@ function mapDispatchToProps(dispatch){
         },
         addUser(userName){
             dispatch(addUser(userName))
+        },
+        redirectToError(){
+            dispatch(push('/error'))
         }
     }
 }
