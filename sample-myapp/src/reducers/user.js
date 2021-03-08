@@ -1,19 +1,12 @@
 
 
 const initialState = {
-    users :{
-        userName : '',
-        userNameList : [
-            'ob',
-            'mng',
-            'src',
-        ]
-    },
-    router : {
-        location : {
-            
-        }
-    }
+    userName : '',
+    userNameList : [
+        'ob',
+        'mng',
+        'src',
+    ]
 }
 
 function userReducer(state=initialState,action ){

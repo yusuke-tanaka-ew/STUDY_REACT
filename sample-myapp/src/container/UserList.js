@@ -3,10 +3,10 @@ import UserList from '../components/UserList';
 import {inputUser,addUser} from '../actions/addUser';
 import {push} from 'react-router-redux'
 
-function mapStateToProps(users){
+function mapStateToProps(state){
     return {
-        userName : users.userName,
-        userNameList : users.userNameList
+        userName : state.users.userName,
+        userNameList : state.users.userNameList
     } 
 }
 
