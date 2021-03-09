@@ -1,1 +1,4 @@
-export const noop = (state ={}) => state;
+
+export function nttd(state={}){
+    return state
+}
