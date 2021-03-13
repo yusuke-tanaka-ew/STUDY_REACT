@@ -12,10 +12,36 @@ export default class Ranking extends React.Component{
     }
 
     render(){
+        const {category,ranking,error} = this.props
         return(
             <div>
-                <h2>RANKING COMPONENT</h2>
-                <p>CATEGORY ID : {this.props.categoryId}</p>
+                <h2>
+                    {
+                        typeof category !== 'undefined'
+                            ? `Ranking of {category.name}`
+                            : ''
+                    }
+                </h2>
+                    {
+                        (()=> {
+                            if(error){
+                                return <p>Error occured. Please reload again</p>
+                            }else if (typeof ranking ==='undefined') {
+                                return <p>Now loading data. Please wait.</p>
+                            }else{
+                                return(
+                                    <ol>
+                                        {ranking.map(item => (
+                                            <li key = {`ranking-item-${item.code}`}>
+                                                <img alt={item.name} src = {item.imageUrl}/>
+                                                <a href={item.url} target='_blank'>{item.name}</a>
+                                            </li>
+                                        ))}
+                                    </ol>
+                                )
+                            }
+                        })()
+                    }
             </div>
         )
     }
