@@ -3,6 +3,8 @@ import {InlineTex,Tex} from 'react-tex';
 
 import 'katex/dist/katex.min.css';
 
+import {TextareaAutosize} from '@material-ui/core'
+
 const latexString = "\int_{a}^{b} f(x)dx = F(b) - F(a)";
 const Latex = require('react-latex');
 
@@ -12,7 +14,7 @@ export default class TexArea extends React.Component{
         return(
             <div className='texArea'>
                 <div className='inputArea'>
-                        <textarea value = {this.props.texContent} onChange={(e)=>this.props.inputTex(e.target.value)} />
+                        <TextareaAutosize value = {this.props.texContent} onChange={(e)=>this.props.inputTex(e.target.value)} rowMin={3} />
                 </div>
                 <div className ='viewArea'>
                     <h2>THIS IS RAW CONTENT</h2>
