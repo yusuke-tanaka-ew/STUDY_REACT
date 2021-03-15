@@ -6,6 +6,7 @@ export default (state=initialState,action) => {
     switch(action.type){
         case 'INPUT_TEX':
             return {
+                ...state,
                 texContent : action.payload.texContent
             }
         default:
