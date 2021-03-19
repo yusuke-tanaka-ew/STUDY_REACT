@@ -15,8 +15,8 @@ const mapDispatchToProps = dispatch => (
         inputTex(texContent){
             dispatch(inputTex(texContent))
         },
-        setOpenForm(){
-            dispatch(setOpenForm())
+        setOpenForm(isOpenForm){
+            dispatch(setOpenForm(isOpenForm))
         }
     }
 )

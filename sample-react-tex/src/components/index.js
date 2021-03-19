@@ -1,8 +1,8 @@
 import React from 'react';
-import {InlineTex,Tex} from 'react-tex';
+import {InlineTex} from 'react-tex';
 import 'katex/dist/katex.min.css';
 import {Grid,TextField,Button} from '@material-ui/core'
-import {Overlay} from '../containers/overlay'
+import Overlay from '../containers/overlay'
 
 export default class TexArea extends React.Component{
     
