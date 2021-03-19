@@ -6,3 +6,12 @@ export const inputTex = texContent => (
         }
     }
 )
+
+export const setOpenForm = isOpenForm => (
+    {
+        type:'SET_OPEN_FORM',
+        payload : {
+            isOpenForm:isOpenForm
+        }
+    }
+)

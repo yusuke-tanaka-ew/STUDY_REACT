@@ -1,12 +1,8 @@
 import React from 'react';
 import {InlineTex,Tex} from 'react-tex';
-
 import 'katex/dist/katex.min.css';
-
-import {Grid,TextField} from '@material-ui/core'
-
-const latexString = "\int_{a}^{b} f(x)dx = F(b) - F(a)";
-const Latex = require('react-latex');
+import {Grid,TextField,Button} from '@material-ui/core'
+import {Overlay} from '../containers/overlay'
 
 export default class TexArea extends React.Component{
     
@@ -31,6 +27,8 @@ export default class TexArea extends React.Component{
                         </div>
                     </Grid>
                 </Grid>
+                <Button raised color='primary' onClick={()=> this.props.setOpenForm(true)}>OVER RAY</Button>
+                <Overlay />
             </div>
         )
     }
