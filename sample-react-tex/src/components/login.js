@@ -23,7 +23,7 @@ export default class Login extends React.Component{
                     <Grid item xs = {12}>
                     </Grid>
                 </Grid>
-                <Button raised color='primary' onClick={()=> this.props.signupWithEmail(this.props.tmpEmail,this.props.tmpPassword)}>SIGN UP</Button>
+                <Button raised color='primary' onClick={()=> this.props.signupWithEmail()}>SIGN UP</Button>
             </div>
         )
     }

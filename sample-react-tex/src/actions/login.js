@@ -1,3 +1,5 @@
+import firebase from '../firebase/index';
+
 export const inputEmail = tmpEmail => (
     {
         type:'INPUT_EMAIL',
@@ -25,6 +27,22 @@ export const setLoginStatus = loginStatus => (
 )
 
 
-export const signupWithEmail = (tmpEmail,tmpPassword) => {
+export const signupWithEmail = () => {
+    return (dispatch,getState) => {
+        const tmpEmail = getState().default.tmpEmail
+        const tmpPassword = getState().default.tmpPassword
 
+        console.log(tmpEmail)
+        console.log(tmpPassword)
+
+        firebase.auth().createUserWithEmailAndPassword(tmpEmail, tmpPassword)
+        .then(res => {
+            dispatch(setLoginStatus(true))
+        })
+        .catch(error => {
+            console.log(error)
+            dispatch(setLoginStatus(false))
+        });
+
+    }
 }
