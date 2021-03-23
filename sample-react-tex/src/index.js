@@ -1,23 +1,31 @@
-import React from 'react';
-import {Provider} from 'react-redux';
-import {createStore} from 'redux';
+
+import React,{Component} from 'react';
+import {
+  Switch,Route
+} from 'react-router-dom';
+
 import {render} from 'react-dom';
+import {Provider} from 'react-redux';
+import {ConnectedRouter} from 'react-router-redux'
 
-import texReducer from './reducers/index';
-import TexArea from './containers/index';
+import createBrowserHistory from 'history/createBrowserHistory';
+import createStore from './createStore'
 
-const store = createStore(texReducer)
+import Login from './containers/login';
+
+const history = createBrowserHistory();
+const store = createStore(history);
 
 render(
   <div className='App'>
-    <div>{`REACT_APP_APIKEY:${process.env.REACT_APP_APIKEY}`}</div>
-    <div>{`REACT_APP_AUTHDOMAIN:${process.env.REACT_APP_AUTHDOMAIN}`}</div>
-    <div>{`REACT_APP_DATABASEURL:${process.env.REACT_APP_DATABASEURL}`}</div>
-    <div>{`REACT_APP_PROJECT_ID:${process.env.REACT_APP_PROJECT_ID}`}</div>
-    <div>{`REACT_APP_STORAGE_BUCKET:${process.env.REACT_APP_STORAGE_BUCKET}`}</div>
-    <div>{`REACT_APP_MESSAGING_SENDER_ID:${process.env.REACT_APP_MESSAGING_SENDER_ID}`}</div>
-    <div>{`REACT_APP_APP_ID:${process.env.REACT_APP_APP_ID}`}</div>
-    <div>{`REACT_APP_MEASUREMENT_ID:${process.env.REACT_APP_MEASUREMENT_ID}`}</div>
+      <Provider store = {store}>
+        <ConnectedRouter history = {history}>
+          <Switch>
+            <Route path = '/login' component = {Login} />
+            <Route path = '/' component = {Login} />
+          </Switch>
+        </ConnectedRouter>
+      </Provider>
   </div>,
   document.getElementById('root')
-)
+);
