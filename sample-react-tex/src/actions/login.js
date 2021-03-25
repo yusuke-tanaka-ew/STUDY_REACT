@@ -38,6 +38,7 @@ export const signupWithEmail = () => {
         firebase.auth().createUserWithEmailAndPassword(tmpEmail, tmpPassword)
         .then(res => {
             dispatch(setLoginStatus(true))
+            console.log(res)
         })
         .catch(error => {
             console.log(error)
