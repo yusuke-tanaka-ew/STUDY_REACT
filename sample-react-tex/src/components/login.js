@@ -3,7 +3,9 @@ import {Grid,TextField,Button} from '@material-ui/core'
 
 export default class Login extends React.Component{
     
-    
+    componentDidMount(){
+        this.props.checkAuth()
+    }
 
     render(){
         return(
