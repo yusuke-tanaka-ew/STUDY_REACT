@@ -32,9 +32,15 @@ export const checkAuth = () => {
             if (user) {
             // User is signed in, see docs for a list of available properties
             // https://firebase.google.com/docs/reference/js/firebase.User
-            var uid = user.uid;
+    
+            console.log(user.talentId)
+            console.log(user.refreshToken)
             dispatch(setLoginStatus(true))
-
+            firebase.auth().currentUser.getIdToken(true).then(function(idToken){
+                console.log(idToken)
+            }).catch(function(error){
+                console.log(error)
+            });
             // ...
             } else {
             // User is signed out
